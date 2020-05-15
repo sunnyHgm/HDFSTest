@@ -8,9 +8,9 @@ public class ReadMoreTest {
         HdfsClient hdfsClient=new HdfsClient();
         hdfsClient.init(num);
         List<Long> list=new ArrayList<Long>();
-        String localPath="/data/readdata/read.txt";
+        String localPath="/data1/readdata/read.txt";
         int count=Integer.parseInt(args[1]);
-        for (int i = 0 ; i < 12 ; i++){
+        for (int i = 0 ; i < 7 ; i++){
             long startTime=System.currentTimeMillis();
             for (int j = 0; j < count ; j++){
                 String filePath="/input/hdfs-"+(j+1)+"-"+args[0];
