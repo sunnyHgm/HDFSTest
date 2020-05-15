@@ -3,17 +3,17 @@ import java.util.List;
 
 public class WriteMoreTest {
     public static void main(String[] args) throws Exception{
-//dst count num
+        //dst count num
         HdfsClient hdfsClient=new HdfsClient();
         hdfsClient.init(args[2]);
         List<Long> list=new ArrayList<Long>();
         //hdfsClient.deletefd("/input");
-        String dstbase="/data/testdata/";
+        String dstbase="/data1/testdata/";
         String dstt=dstbase+args[0];
         String contents=hdfsClient.readLocalFile(dstt);
         String aimdst="/input/hdfs-";
         int count=Integer.parseInt(args[1]);
-        for (int i = 0 ; i < 12 ;i++){
+        for (int i = 0 ; i < 7 ;i++){
             long startTime=System.currentTimeMillis();
             for ( int j =0 ; j < count; j ++){
                 //System.out.println(i+1+"begin"+j+1);
