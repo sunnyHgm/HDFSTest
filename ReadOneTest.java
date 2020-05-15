@@ -99,14 +99,15 @@ public class ReadOneTest {
         System.out.println("读取100个文件平均每个文件耗时"+ave/100+"ms");
 
 **/
+// fdst
         String num="1";//读取文件时设置副本数没有任何意义，默认为1
         HdfsClient hdfsClient=new HdfsClient();
         hdfsClient.init(num);
         List<Long> list=new ArrayList<Long>();
         String filePath="/input/hdfs-"+args[0];
-        for (int i = 0 ; i < 12 ; i++){
+        for (int i = 0 ; i < 7 ; i++){
             long startTime=System.currentTimeMillis();
-            String localPath="/data/readdata/read.txt";
+            String localPath="/data1/readdata/read.txt";
             hdfsClient.readFile(filePath,localPath);
             long endTime=System.currentTimeMillis();
             System.out.println("文件"+args[0]+"第"+(i+1)+"次读取时间： "+(endTime-startTime)+"ms");
