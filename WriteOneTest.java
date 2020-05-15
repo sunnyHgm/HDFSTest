@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
 public class WriteOneTest {
-
-
     public static void main(String[] args) throws Exception {
         // dst num
 /**
@@ -137,20 +134,23 @@ public class WriteOneTest {
         System.out.println("舍弃前取平均时间：" + ave +"ms");
         System.out.println("舍弃后取平均时间：" + fave +"ms");
  **/
-// dst num
+        // dst num
         HdfsClient hdfsClient=new HdfsClient();
         hdfsClient.init(args[1]);
         List<Long> list=new ArrayList<Long>();
         //hdfsClient.deletefd("/input");
-        for (int i = 0 ; i < 12 ; i++){
-            String dstbase="/data/testdata/";
+        for (int i = 0 ; i < 7 ; i++){
+            //String dstbase="/data/testdata/";
+            String dstbase="/data1/testdata/";
             String dstt=dstbase+args[0];
             String contents=hdfsClient.readLocalFile(dstt);
             String aimdstbase="/input/hdfs-";
             String aimdstt=aimdstbase+args[0];
+
             long startTime=System.currentTimeMillis();
             hdfsClient.writeFlie(aimdstt,contents);
             long endTime=System.currentTimeMillis();
+
             System.out.println("文件"+args[0]+"第"+(i+1)+"次写入时间： "+(endTime-startTime)+"ms");
             list.add(endTime-startTime);
         }
